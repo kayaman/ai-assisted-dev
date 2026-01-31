@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      glob: "*.{js,ts,astro,json,mjs,cjs}"
+      run: bun run lint
+    terraform:
+      glob: "terraform/**/*.tf"
+      run: cd terraform && terraform fmt -check -recursive

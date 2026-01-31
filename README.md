@@ -38,8 +38,21 @@ All commands are run from the root of the project, from a terminal:
 | `bun dev`             | Starts local dev server at `localhost:4321`      |
 | `bun build`           | Build your production site to `./dist/`          |
 | `bun preview`         | Preview your build locally, before deploying     |
+| `bun run test`        | Run unit tests (Vitest)                          |
+| `bun run test:e2e`    | Run E2E tests (Playwright)                       |
+| `bun run lint`        | Lint and format with Biome                       |
 | `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `bun astro -- --help` | Get help using the Astro CLI                     |
+
+## 🚀 Deployment
+
+See [docs/SETUP.md](docs/SETUP.md) for deployment and [docs/CONVENTIONS.md](docs/CONVENTIONS.md) for project conventions.
+
+Setup guide covers:
+
+- Terraform bootstrap and main infrastructure
+- GitHub OIDC provider setup (AWS)
+- Syncing Terraform outputs to GitHub via `./scripts/setup-github-vars.sh`
 
 ## 👀 Want to learn more?
 

@@ -1,0 +1,7 @@
+aws_region       = "us-east-1"
+project_name     = "ai-assisted-dev"
+domain_name      = "ai-assisted.dev"
+route53_zone_id  = "Z1234567890ABCDEFGHIJ"
+github_org       = "your-github-username-or-org"
+github_repo      = "ai-assisted-dev"
+github_branch    = "main"

@@ -22,3 +22,19 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Terraform
+terraform.tfvars
+*.tfvars
+!*.tfvars.example
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Biome
+.biome-cache/
+
+# Test artifacts
+test-results/
+playwright-report/
+playwright/.cache/
