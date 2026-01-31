@@ -15,11 +15,6 @@ variable "domain_name" {
   type        = string
 }
 
-variable "route53_zone_id" {
-  description = "Route 53 hosted zone ID for the domain"
-  type        = string
-}
-
 variable "github_org" {
   description = "GitHub organization or username"
   type        = string

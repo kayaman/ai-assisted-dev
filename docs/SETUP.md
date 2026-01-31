@@ -88,7 +88,17 @@ terraform plan
 terraform apply
 ```
 
-## 4. GitHub Variables and Secrets
+## 4. Troubleshooting
+
+**Invalid AWS credentials:** Unset stale env vars (`unset AWS_ACCESS_KEY AWS_SECRET_KEY`) so the profile is used.
+
+**Route 53 zone:** The zone is looked up by `domain_name`; no `route53_zone_id` needed. Ensure the hosted zone for your domain exists in Route 53.
+
+**www CNAME conflict:** If `www` has an existing CNAME, delete it in Route 53 before applying. Terraform creates A/AAAA alias records for CloudFront; a CNAME would conflict.
+
+---
+
+## 5. GitHub Variables and Secrets
 
 After `terraform apply`, sync outputs to GitHub (requires [gh CLI](https://cli.github.com/) authenticated):
 

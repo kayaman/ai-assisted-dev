@@ -1,6 +1,12 @@
+data "aws_route53_zone" "main" {
+  name         = var.domain_name
+  private_zone = false
+}
+
 resource "aws_route53_record" "apex" {
-  zone_id = var.route53_zone_id
-  name    = var.domain_name
+  zone_id        = data.aws_route53_zone.main.zone_id
+  name           = var.domain_name
+  allow_overwrite = true
   type    = "A"
 
   alias {
@@ -11,8 +17,9 @@ resource "aws_route53_record" "apex" {
 }
 
 resource "aws_route53_record" "apex_ipv6" {
-  zone_id = var.route53_zone_id
-  name    = var.domain_name
+  zone_id         = data.aws_route53_zone.main.zone_id
+  name            = var.domain_name
+  allow_overwrite = true
   type    = "AAAA"
 
   alias {
@@ -23,8 +30,9 @@ resource "aws_route53_record" "apex_ipv6" {
 }
 
 resource "aws_route53_record" "www" {
-  zone_id = var.route53_zone_id
-  name    = "www.${var.domain_name}"
+  zone_id         = data.aws_route53_zone.main.zone_id
+  name            = "www.${var.domain_name}"
+  allow_overwrite = true
   type    = "A"
 
   alias {
@@ -35,8 +43,9 @@ resource "aws_route53_record" "www" {
 }
 
 resource "aws_route53_record" "www_ipv6" {
-  zone_id = var.route53_zone_id
-  name    = "www.${var.domain_name}"
+  zone_id         = data.aws_route53_zone.main.zone_id
+  name            = "www.${var.domain_name}"
+  allow_overwrite = true
   type    = "AAAA"
 
   alias {

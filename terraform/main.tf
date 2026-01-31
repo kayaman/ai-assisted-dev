@@ -12,7 +12,7 @@ terraform {
     key            = "website/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "ai-assisted-dev-terraform-locks"
+    use_lockfile   = true
   }
 }
 

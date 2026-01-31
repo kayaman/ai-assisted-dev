@@ -10,26 +10,23 @@ resource "aws_cloudfront_response_headers_policy" "security" {
   name    = "${var.project_name}-security-headers"
   comment = "Security headers for ${var.project_name}"
 
-  custom_headers_config {
-    items {
-      header   = "Strict-Transport-Security"
+  security_headers_config {
+    content_type_options {
       override = true
-      value    = "max-age=31536000; includeSubDomains; preload"
     }
-    items {
-      header   = "X-Content-Type-Options"
-      override = true
-      value    = "nosniff"
+    frame_options {
+      frame_option = "DENY"
+      override     = true
     }
-    items {
-      header   = "X-Frame-Options"
-      override = true
-      value    = "DENY"
+    referrer_policy {
+      referrer_policy = "strict-origin-when-cross-origin"
+      override       = true
     }
-    items {
-      header   = "Referrer-Policy"
-      override = true
-      value    = "strict-origin-when-cross-origin"
+    strict_transport_security {
+      access_control_max_age_sec = 31536000
+      include_subdomains         = true
+      override                  = true
+      preload                   = true
     }
   }
 }
